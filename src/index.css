@@ -1,0 +1,55 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.react-flow__node {
+  padding: 0;
+  border-radius: 4px;
+  width: auto;
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+}
+
+.react-flow__node-input {
+  background: #f6f6f6;
+  border-color: #0041d0;
+}
+
+.react-flow__node-output {
+  background: #f6f6f6;
+  border-color: #ff0072;
+}
+
+.react-flow__handle {
+  width: 4px;
+  height: 4px;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 50%;
+}
+
+.react-flow__handle-bottom{
+  bottom: 2px !important;
+}
+
+.react-flow__handle-top{
+  top: 2px !important;
+}
+
+.react-flow__handle-left {
+  left: -4px;
+}
+
+.react-flow__handle-right {
+  right: -4px;
+} 
