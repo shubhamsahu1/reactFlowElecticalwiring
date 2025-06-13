@@ -18,11 +18,13 @@ import SquareIndicatorNode from '../components/nodes/SquareIndicatorNode';
 import LabelNode from '../components/nodes/LabelNode';
 import CustomEdge from '../components/edge/CustomEdge';
 import FuseNode from '../components/nodes/FuseNode';
+import ContractorNode from '../components/nodes/ContractorNode';
 
 const nodeTypes = {
     squareIndicator: SquareIndicatorNode,
     labelNode: LabelNode,
-    fuseNode: FuseNode
+    fuseNode: FuseNode,
+    contractorNode: ContractorNode
 };
 
 type CustomNode = Node<{
@@ -70,6 +72,12 @@ export default function View2() {
                 type: 'fuseNode',
                 data: { label: 'Fuse', rotation: 'vertical' },
                 position: { x: 270, y: 190 },
+            },
+            {
+                id: '6',
+                type: 'contractorNode',
+                data: { label: 'Contractor', rotation: 'vertical' },
+                position: { x: 100, y: 200 },
             }
         ]);
         setEdges([
@@ -106,6 +114,14 @@ export default function View2() {
                 target: '5',
                 sourceHandle: 'bottom',
                 targetHandle: 'top',
+                type: 'customEdge',
+            },
+            {
+                id: 'e1-6',
+                source: '2',
+                target: '6',
+                sourceHandle: 'bottom',
+                targetHandle: 'bottom',
                 type: 'customEdge',
             }
         ]);
