@@ -19,12 +19,14 @@ import LabelNode from '../components/nodes/LabelNode';
 import Wire from '../components/edge/Wire';
 import FuseNode from '../components/nodes/FuseNode';
 import ContractorNode from '../components/nodes/ContractorNode';
+import InverterNode from '../components/nodes/InverterNode';
 
 const nodeTypes = {
     squareIndicator: SquareIndicatorNode,
     labelNode: LabelNode,
     fuseNode: FuseNode,
-    contractorNode: ContractorNode
+    contractorNode: ContractorNode,
+    inverterNode: InverterNode
 };
 
 type CustomNode = Node<{
@@ -77,7 +79,13 @@ export default function View2() {
                 id: '6',
                 type: 'contractorNode',
                 data: { label: 'Contractor', rotation: 'vertical' },
-                position: { x: 100, y: 200 },
+                position: { x: 65, y: 197.5 },
+            },
+            {
+                id: '7',
+                type: 'inverterNode',
+                data: { label: 'Inverter', rotation: 'vertical' },
+                position: { x: 53, y: 120 },
             }
         ]);
         setEdges([
@@ -123,6 +131,14 @@ export default function View2() {
                 sourceHandle: 'bottom',
                 targetHandle: 'bottom',
                 type: 'Wire',
+            },
+            {
+                id: 'e1-7',
+                source: '6',
+                target: '7',
+                sourceHandle: 'top',
+                targetHandle: 'bottom',
+                type: 'Wire',
             }
         ]);
     }, []);
@@ -130,7 +146,7 @@ export default function View2() {
     const onConnect = () => {
         // Do nothing
     };
-
+    console.log(nodes);
     return (
         <Box sx={{ width: '100%', height: '600px' }}>
             <ReactFlow
@@ -142,9 +158,9 @@ export default function View2() {
                 nodeTypes={nodeTypes}
                 edgeTypes={edgeTypes}
                 style={{ background: '#f5f5f5' }}
-                nodesDraggable={false}
-                nodesConnectable={false}
-                elementsSelectable={false}
+                // nodesDraggable={false}
+                // nodesConnectable={false}
+                // elementsSelectable={false}
                 connectionMode={ConnectionMode.Loose}
                 fitView
             >
