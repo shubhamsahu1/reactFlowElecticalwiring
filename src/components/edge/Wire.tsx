@@ -5,7 +5,7 @@ type CustomEdgeData = Edge<{
   color?: string;
 }>;
 
-export default function CustomEdge(props: EdgeProps<CustomEdgeData>) {
+export default function Wire(props: EdgeProps<CustomEdgeData>) {
   const { sourceX, sourceY, targetX, targetY, data: edgeData, animated } = props;
 
   return (

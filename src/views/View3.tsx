@@ -16,7 +16,7 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import SquareIndicatorNode from '../components/nodes/SquareIndicatorNode';
 import LabelNode from '../components/nodes/LabelNode';
-import CustomEdge from '../components/edge/CustomEdge';
+import Wire from '../components/edge/Wire';
 import FuseNode from '../components/nodes/FuseNode';
 import ContractorNode from '../components/nodes/ContractorNode';
 
@@ -34,7 +34,7 @@ type CustomNode = Node<{
 }>;
 
 const edgeTypes = {
-    customEdge: CustomEdge,
+    Wire: Wire,
 };
 
 export default function View2() {
@@ -86,7 +86,7 @@ export default function View2() {
                 source: '1',
                 sourceHandle: 'bottom',
                 target: '2',
-                type: 'customEdge',
+                type: 'Wire',
                 animated: true,
             },
             {
@@ -94,7 +94,7 @@ export default function View2() {
                 source: '1',
                 target: '3',
                 sourceHandle: 'bottom',
-                type: 'customEdge',
+                type: 'Wire',
                 animated: false,
             },
             {
@@ -102,7 +102,7 @@ export default function View2() {
                 source: '1',
                 target: '4',
                 sourceHandle: 'top',
-                type: 'customEdge',
+                type: 'Wire',
                 animated: false,
                 markerEnd: {
                     type: MarkerType.ArrowClosed,
@@ -114,7 +114,7 @@ export default function View2() {
                 target: '5',
                 sourceHandle: 'bottom',
                 targetHandle: 'top',
-                type: 'customEdge',
+                type: 'Wire',
             },
             {
                 id: 'e1-6',
@@ -122,7 +122,7 @@ export default function View2() {
                 target: '6',
                 sourceHandle: 'bottom',
                 targetHandle: 'bottom',
-                type: 'customEdge',
+                type: 'Wire',
             }
         ]);
     }, []);

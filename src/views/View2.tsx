@@ -15,7 +15,7 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import SquareIndicatorNode from '../components/nodes/SquareIndicatorNode';
 import LabelNode from '../components/nodes/LabelNode';
-import CustomEdge from '../components/edge/CustomEdge';
+import CustomEdge from '../components/edge/Wire';
 
 const nodeTypes = {
   squareIndicator: SquareIndicatorNode,
