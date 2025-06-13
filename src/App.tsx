@@ -1,5 +1,5 @@
-import View2 from './views/View2';
+import View3 from './views/View3';
 
 export default function App() {
-  return <View2 />;
+  return <View3 />;
 } 

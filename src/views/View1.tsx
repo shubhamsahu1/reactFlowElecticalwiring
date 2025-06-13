@@ -13,11 +13,11 @@ import type { Node, Edge, Connection } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { Box } from '@mui/material';
 import { useCallback, useEffect } from 'react';
-import ColorSelectorNode from '../components/ColorSelectorNode';
-import FanNode from '../components/FanNode';
-import BulbNode from '../components/BulbNode';
-import CircuitBreakerNode from '../components/CircuitBreakerNode';
-import ResistorNode from '../components/ResistorNode';
+import ColorSelectorNode from '../components/nodes/ColorSelectorNode';
+import FanNode from '../components/nodes/FanNode';
+import BulbNode from '../components/nodes/BulbNode';
+import CircuitBreakerNode from '../components/nodes/CircuitBreakerNode';
+import ResistorNode from '../components/nodes/ResistorNode';
 
 const nodeTypes = {
   selectorNode: ColorSelectorNode,

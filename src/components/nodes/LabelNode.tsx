@@ -1,7 +1,8 @@
 import { memo } from 'react';
-import { Handle, Position } from '@xyflow/react';
-import Box from '@mui/material/Box';
+import { Position } from '@xyflow/react';
+import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import Terminal from '../handler/Terminal';
 
 interface NodeProps {
     data: {
@@ -16,7 +17,7 @@ const LabelNode = ({ data }: NodeProps) => {
                 background: 'transparent',
                 border: 'none',
                 p: 0,
-                width: "20px",
+                maxWidth: "40px",
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -24,7 +25,7 @@ const LabelNode = ({ data }: NodeProps) => {
                 userSelect: 'none',
             }}
         >
-            <Handle type="target" position={Position.Bottom} style={{ background: '#222' }} />
+            <Terminal type="target" position={Position.Bottom} />
             <Typography
                 variant="caption"
                 sx={{

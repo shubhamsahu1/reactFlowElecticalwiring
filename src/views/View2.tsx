@@ -1,21 +1,21 @@
 import {
   ReactFlow,
-  MiniMap,
+  // MiniMap,
   Controls,
   Background,
   useNodesState,
   useEdgesState,
-  addEdge,
+  // addEdge,
   BackgroundVariant,
-  Position,
   MarkerType,
 } from '@xyflow/react';
-import type { Node, Edge, Connection } from '@xyflow/react';
+import type { Node, Edge } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { Box } from '@mui/material';
-import { useCallback, useEffect } from 'react';
-import SquareIndicatorNode from '../components/SquareIndicatorNode';
-import LabelNode from '../components/LabelNode';
+import { useEffect } from 'react';
+import SquareIndicatorNode from '../components/nodes/SquareIndicatorNode';
+import LabelNode from '../components/nodes/LabelNode';
+import CustomEdge from '../components/edge/CustomEdge';
 
 const nodeTypes = {
   squareIndicator: SquareIndicatorNode,
@@ -26,6 +26,10 @@ type CustomNode = Node<{
   label?: string;
   color?: boolean;
 }>;
+
+const edgeTypes = {
+  customEdge: CustomEdge,
+};
 
 export default function View2() {
   const [nodes, setNodes, onNodesChange] = useNodesState<CustomNode>([]);
@@ -55,7 +59,7 @@ export default function View2() {
         id: '4',
         type: 'labelNode',
         data: { label: 'L39 400KW' },
-        position: { x: 179, y: 5 },
+        position: { x: 184, y: 5 },
       }
     ]);
     setEdges([
@@ -64,15 +68,15 @@ export default function View2() {
         source: '1',
         sourceHandle: 'bottom',
         target: '2',
-        type: 'smoothstep',
-        animated: false,
+        type: 'customEdge',
+        animated: true,
       },
       {
         id: 'e1-3',
         source: '1',
         target: '3',
         sourceHandle: 'bottom',
-        type: 'smoothstep',
+        type: 'customEdge',
         animated: false,
       },
       {
@@ -80,7 +84,7 @@ export default function View2() {
         source: '1',
         target: '4',
         sourceHandle: 'top',
-        type: 'smoothstep',
+        type: 'customEdge',
         animated: false,
         markerEnd: {
           type: MarkerType.ArrowClosed,
@@ -89,10 +93,9 @@ export default function View2() {
     ]);
   }, []);
 
-  const onConnect = useCallback(
-    (params: Connection) => setEdges((eds) => addEdge({ ...params, animated: true }, eds)),
-    []
-  );
+  const onConnect = () => {
+    // Do nothing
+  };
 
   return (
     <Box sx={{ width: '100%', height: '600px' }}>
@@ -103,11 +106,14 @@ export default function View2() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         style={{ background: '#f5f5f5' }}
+        nodesDraggable={false}
+        nodesConnectable={false}
+        elementsSelectable={false}
         fitView
       >
         <Controls />
-        <MiniMap />
         <Background variant={BackgroundVariant.Cross} gap={12} size={1} />
       </ReactFlow>
     </Box>

@@ -10,7 +10,7 @@ const BulbNode = () => {
 
   return (
     <div
-      
+
       onClick={toggleBulb}
     >
       <div
@@ -28,7 +28,7 @@ const BulbNode = () => {
             stroke="#666"
             strokeWidth="2"
           />
-          
+
           {/* Filament */}
           <path
             d="M50,30 C45,35 40,40 40,50 C40,60 45,65 50,70 C55,65 60,60 60,50 C60,40 55,35 50,30 Z"
@@ -36,10 +36,10 @@ const BulbNode = () => {
             stroke={isOn ? '#FF4500' : '#808080'}
             strokeWidth="1"
           />
-          
+
           {/* Base */}
           <rect x="40" y="80" width="20" height="10" fill="#666" />
-          
+
           {/* Glow Effect */}
           {isOn && (
             <circle

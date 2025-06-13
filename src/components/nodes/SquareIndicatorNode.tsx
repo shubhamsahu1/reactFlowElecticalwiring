@@ -1,17 +1,18 @@
 import { memo, useState } from 'react';
-import { Handle, Position } from '@xyflow/react';
-import Box from '@mui/material/Box';
+import { Position } from '@xyflow/react';
+import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import Terminal from '../handler/Terminal';
 
 interface NodeProps {
   data: {
-    color?: boolean;
+    status?: 'on' | 'off';
     label?: string;
   };
 }
 
 const SquareIndicatorNode = ({ data }: NodeProps) => {
-  const [isGreen, setIsGreen] = useState(data.color);
+  const [isGreen, setIsGreen] = useState(data.status === 'off');
 
   return (
     <>
@@ -57,9 +58,8 @@ const SquareIndicatorNode = ({ data }: NodeProps) => {
             strokeWidth="0.5"
           />
         </svg>
-        <Handle type="target" position={Position.Top} />
-        <Handle type="source" id={"top"} position={Position.Top} />
-        <Handle type="source" id={"bottom"} position={Position.Bottom} />
+        <Terminal type="source" id={"top"} position={Position.Top} style={{ left: 4, top: 2 }} />
+        <Terminal type="source" id={"bottom"} position={Position.Bottom} style={{ left: 4, top: 1 }} />
       </Box>
     </>
   );
