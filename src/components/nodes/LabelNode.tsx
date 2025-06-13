@@ -25,7 +25,7 @@ const LabelNode = ({ data }: NodeProps) => {
                 userSelect: 'none',
             }}
         >
-            <Terminal type="target" position={Position.Bottom} />
+            <Terminal type="target" position={Position.Bottom} id={"bottom"} />
             <Typography
                 variant="caption"
                 sx={{
@@ -37,7 +37,9 @@ const LabelNode = ({ data }: NodeProps) => {
             >
                 {data.label}
             </Typography>
-            {/* <Handle type="source" position={Position.Bottom} style={{ background: '#222' }} /> */}
+            <Terminal type="target" position={Position.Top} id={"top"} />
+            <Terminal type="target" position={Position.Left} id={"left"} />
+            <Terminal type="target" position={Position.Right} id={"right"} />
         </Box>
     );
 };

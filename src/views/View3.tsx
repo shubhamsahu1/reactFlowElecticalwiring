@@ -17,15 +17,18 @@ import { useEffect } from 'react';
 import SquareIndicatorNode from '../components/nodes/SquareIndicatorNode';
 import LabelNode from '../components/nodes/LabelNode';
 import CustomEdge from '../components/edge/CustomEdge';
+import FuseNode from '../components/nodes/FuseNode';
 
 const nodeTypes = {
     squareIndicator: SquareIndicatorNode,
-    labelNode: LabelNode
+    labelNode: LabelNode,
+    fuseNode: FuseNode
 };
 
 type CustomNode = Node<{
     label?: string;
     status?: 'on' | 'off';
+    rotation?: 'vertical' | 'horizontal';
 }>;
 
 const edgeTypes = {
@@ -61,6 +64,12 @@ export default function View2() {
                 type: 'labelNode',
                 data: { label: 'L39 400KW' },
                 position: { x: 184, y: 5 },
+            },
+            {
+                id: '5',
+                type: 'fuseNode',
+                data: { label: 'Fuse', rotation: 'vertical' },
+                position: { x: 270, y: 190 },
             }
         ]);
         setEdges([
@@ -90,6 +99,14 @@ export default function View2() {
                 markerEnd: {
                     type: MarkerType.ArrowClosed,
                 },
+            },
+            {
+                id: 'e1-5',
+                source: '3',
+                target: '5',
+                sourceHandle: 'bottom',
+                targetHandle: 'top',
+                type: 'customEdge',
             }
         ]);
     }, []);
