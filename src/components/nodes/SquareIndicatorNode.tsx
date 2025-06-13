@@ -60,6 +60,8 @@ const SquareIndicatorNode = ({ data }: NodeProps) => {
         </svg>
         <Terminal type="source" id={"top"} position={Position.Top} style={{ left: 4, top: 2 }} />
         <Terminal type="source" id={"bottom"} position={Position.Bottom} style={{ left: 4, top: 1 }} />
+        <Terminal type="source" id={"left"} position={Position.Left} style={{ left: 4, top: 4 }} />
+        <Terminal type="source" id={"right"} position={Position.Right} style={{ left: 4, top: 1 }} />
       </Box>
     </>
   );
