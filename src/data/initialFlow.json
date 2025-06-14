@@ -6,7 +6,8 @@
     { "id": "4", "type": "labelNode", "data": { "label": "L39 400KW" }, "position": { "x": 184, "y": 5 } },
     { "id": "5", "type": "fuseNode", "data": { "label": "Fuse", "rotation": "vertical" }, "position": { "x": 270, "y": 190 } },
     { "id": "6", "type": "contractorNode", "data": { "label": "Contractor", "rotation": "vertical" }, "position": { "x": 65, "y": 197.5 } },
-    { "id": "7", "type": "inverterNode", "data": { "label": "Inverter", "rotation": "vertical" }, "position": { "x": 53, "y": 120 } }
+    { "id": "7", "type": "inverterNode", "data": { "label": "Inverter", "rotation": "vertical" }, "position": { "x": 53, "y": 120 } },
+    { "id": "8", "type": "circuitBreakerNode", "data": { "label": "Circuit Breaker", "rotation": "horizontal", "status": "on" }, "position": {"x": 185, "y": 232} }
   ],
   "edges": [
     { "id": "e1-2", "source": "1", "sourceHandle": "bottom", "target": "2", "type": "Wire", "animated": true },
@@ -15,6 +16,8 @@
     { "id": "e1-5", "source": "3", "target": "5", "sourceHandle": "bottom", "targetHandle": "top", "type": "Wire" },
     { "id": "e1-6", "source": "2", "target": "6", "sourceHandle": "bottom", "targetHandle": "bottom", "type": "Wire" },
     { "id": "e1-7", "source": "6", "target": "7", "sourceHandle": "top", "targetHandle": "verticalT2", "type": "Wire" },
-    { "id": "e1-8", "source": "7", "target": "1", "sourceHandle": "verticalT1", "targetHandle": "left", "type": "Wire","animated": true  }
+    { "id": "e1-8", "source": "7", "target": "1", "sourceHandle": "verticalT1", "targetHandle": "left", "type": "Wire","animated": true  },
+    { "id": "e1-9", "source": "5", "target": "8", "sourceHandle": "bottom", "targetHandle": "horizontalRight", "type": "Wire","animated": true  },
+    { "id": "e1-10", "source": "8", "target": "1", "sourceHandle": "horizontalLeft", "targetHandle": "left", "type": "Wire","animated": true  }
   ]
 } 
