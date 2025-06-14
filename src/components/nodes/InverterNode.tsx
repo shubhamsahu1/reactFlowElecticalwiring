@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Position } from '@xyflow/react';
 import Terminal from '../handler/Terminal';
+import nodeMeta from '../../data/nodeMeta.json';
 
 interface InverterNodeProps {
     data: {
@@ -10,9 +11,24 @@ interface InverterNodeProps {
     };
 }
 
+// type TerminalMeta = {
+//     position: 'Top' | 'Bottom' | 'Left' | 'Right';
+//     id: string;
+//     styles: Record<string, number>;
+//     description: string;
+// };
+
+const inverterMeta = nodeMeta.Inverter;
+
 const InverterNode = ({ data }: InverterNodeProps) => {
     const rotation = data.rotation || 'vertical';
     const isVertical = rotation === 'vertical';
+
+    // Filter terminals based on orientation
+    const terminals = (inverterMeta.Terminal.values).filter((t) => {
+        if (isVertical) return t.position === 'Top' || t.position === 'Bottom';
+        return t.position === 'Left' || t.position === 'Right';
+    });
 
     return (
         <Box
@@ -60,19 +76,16 @@ const InverterNode = ({ data }: InverterNodeProps) => {
                     <line x1="20" y1="32" x2="20" y2="40" stroke="black" strokeWidth="1" />
                 </svg>
 
+                {/* Render terminals from JSON */}
+                {terminals.map((t) => (
+                    <Terminal
+                        type="source"
+                        position={Position[t.position as keyof typeof Position]}
+                        id={t.id}
+                        style={t.styles}
+                    />
 
-                {/* Terminals */}
-                {isVertical ? (
-                    <>
-                        <Terminal type="source" position={Position.Top} id="top" style={{ left: 20, top: 3 }} />
-                        <Terminal type="source" position={Position.Bottom} id="bottom" style={{ left: 20, bottom: 8 }} />
-                    </>
-                ) : (
-                    <>
-                        <Terminal type="source" position={Position.Left} id="left" style={{ top: 3, left: 20 }} />
-                        <Terminal type="source" position={Position.Right} id="right" style={{ top: 37, right: 20 }} />
-                    </>
-                )}
+                ))}
             </Box>
         </Box>
     );

@@ -14,7 +14,7 @@
     { "id": "e1-4", "source": "1", "target": "4", "sourceHandle": "top", "type": "Wire", "animated": false, "markerEnd": { "type": "ArrowClosed" } },
     { "id": "e1-5", "source": "3", "target": "5", "sourceHandle": "bottom", "targetHandle": "top", "type": "Wire" },
     { "id": "e1-6", "source": "2", "target": "6", "sourceHandle": "bottom", "targetHandle": "bottom", "type": "Wire" },
-    { "id": "e1-7", "source": "6", "target": "7", "sourceHandle": "top", "targetHandle": "bottom", "type": "Wire" },
-    { "id": "e1-8", "source": "7", "target": "1", "sourceHandle": "top", "targetHandle": "left", "type": "Wire","animated": true  }
+    { "id": "e1-7", "source": "6", "target": "7", "sourceHandle": "top", "targetHandle": "verticalT2", "type": "Wire" },
+    { "id": "e1-8", "source": "7", "target": "1", "sourceHandle": "verticalT1", "targetHandle": "left", "type": "Wire","animated": true  }
   ]
 } 

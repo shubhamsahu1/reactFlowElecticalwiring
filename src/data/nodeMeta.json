@@ -1,0 +1,44 @@
+{
+  "Inverter": {
+    "description": "A node representing an inverter, which converts DC to AC.",
+    "nodeType": "inverterNode",
+    "props": {
+      "label": {
+        "type": "string",
+        "description": "Label for the inverter node."
+      },
+      "rotation": {
+        "type": "'vertical' | 'horizontal'",
+        "description": "Orientation of the inverter node."
+      }
+    },
+    "Terminal": {
+      "values": [
+        {
+          "position": "Top",
+          "id": "verticalT1",
+          "styles": { "left": 20, "top": 3 },
+          "description": "Top terminal for vertical orientation"
+        },
+        {
+          "position": "Bottom",
+          "id": "verticalT2",
+          "styles": { "left": 20, "bottom": 8 },
+          "description": "Bottom terminal for vertical orientation"
+        },
+        {
+          "position": "Left",
+          "id": "horizontalT1",
+          "styles": { "top": 3, "left": 20 },
+          "description": "Left terminal for horizontal orientation"
+        },
+        {
+          "position": "Right",
+          "id": "horizontalT2",
+          "styles": { "top": 37, "right": 20 },
+          "description": "Right terminal for horizontal orientation"
+        }
+      ]
+    }
+  }
+} 
